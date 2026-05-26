@@ -31,5 +31,6 @@ export const t = {
   oneDigit: 'Таблица Сложения',
   twoDigit: 'Сложение справа налево',
   additionRound: 'Сложение справа налево',
+  additionLeftRight: 'Сложение слева направо',
   lifetimeStats: 'Общая статистика',
 };
