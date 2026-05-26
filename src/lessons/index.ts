@@ -20,6 +20,7 @@ export const modules: Module[] = [
       { id: 'addition-1', titleRu: t.oneDigit, generatorId: 'addition-1' },
       { id: 'addition-round', titleRu: t.additionRound, generatorId: 'addition-round' },
       { id: 'addition-leftright', titleRu: t.additionLeftRight, generatorId: 'addition-leftright' },
+      { id: 'addition-twostep', titleRu: t.additionTwoStep, generatorId: 'addition-twostep' },
     ],
   },
   {

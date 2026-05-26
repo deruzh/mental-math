@@ -32,5 +32,6 @@ export const t = {
   twoDigit: 'Сложение справа налево',
   additionRound: 'Сложение справа налево',
   additionLeftRight: 'Сложение слева направо',
+  additionTwoStep: 'Сложение в два шага',
   lifetimeStats: 'Общая статистика',
 };
