@@ -6,7 +6,6 @@ export interface Task {
 
 export interface Generator {
   id: string;
-  titleRu: string;
   generate(): Task;
 }
 

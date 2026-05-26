@@ -1,12 +1,13 @@
 import { Generator } from './types';
 import { makeAddition } from './addition';
+import { makeAdditionRound } from './additionRound';
 import { makeSubtraction } from './subtraction';
 import { makeMultiplication } from './multiplication';
 import { makeDivision } from './division';
 
 export const generators: Generator[] = [
   makeAddition(1),
-  makeAddition(2),
+  makeAdditionRound(),
   makeSubtraction(1),
   makeSubtraction(2),
   makeMultiplication(1),

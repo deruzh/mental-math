@@ -28,7 +28,8 @@ export const t = {
   modSubtraction: 'Вычитание',
   modMultiplication: 'Умножение',
   modDivision: 'Деление',
-  oneDigit: 'однозначные',
-  twoDigit: 'двузначные',
+  oneDigit: 'Таблица Сложения',
+  twoDigit: 'Сложение справа налево',
+  additionRound: 'Сложение справа налево',
   lifetimeStats: 'Общая статистика',
 };

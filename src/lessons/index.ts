@@ -18,7 +18,7 @@ export const modules: Module[] = [
     titleRu: t.modAddition,
     lessons: [
       { id: 'addition-1', titleRu: t.oneDigit, generatorId: 'addition-1' },
-      { id: 'addition-2', titleRu: t.twoDigit, generatorId: 'addition-2' },
+      { id: 'addition-round', titleRu: t.additionRound, generatorId: 'addition-round' },
     ],
   },
   {
