@@ -21,6 +21,7 @@ export const modules: Module[] = [
       { id: 'addition-round', titleRu: t.additionRound, generatorId: 'addition-round' },
       { id: 'addition-leftright', titleRu: t.additionLeftRight, generatorId: 'addition-leftright' },
       { id: 'addition-twostep', titleRu: t.additionTwoStep, generatorId: 'addition-twostep' },
+      { id: 'addition-blocks', titleRu: t.additionBlocks, generatorId: 'addition-blocks' },
     ],
   },
   {

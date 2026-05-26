@@ -33,5 +33,6 @@ export const t = {
   additionRound: 'Сложение справа налево',
   additionLeftRight: 'Сложение слева направо',
   additionTwoStep: 'Сложение в два шага',
+  additionBlocks: 'Разделение на двойки и тройки',
   lifetimeStats: 'Общая статистика',
 };
