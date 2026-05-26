@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { loadPersisted, savePersisted, PersistedState, Stats } from './persistence';
+import { parseHash } from '../router/url';
 
 export type Screen = 'home' | 'lesson' | 'challenge';
 
@@ -15,10 +16,12 @@ interface AppState {
 }
 
 const persisted = loadPersisted();
+const initialRoute =
+  typeof window !== 'undefined' ? parseHash(window.location.hash) : { screen: 'home' as Screen };
 
 export const useStore = create<AppState>((set, get) => ({
-  screen: 'home',
-  selectedLessonIdx: persisted?.selectedLessonIdx ?? 0,
+  screen: initialRoute.screen,
+  selectedLessonIdx: initialRoute.lessonIdx ?? persisted?.selectedLessonIdx ?? 0,
   stats: persisted?.stats ?? { totalCorrect: 0, totalAnswered: 0, avgTimeMs: 0 },
   bestChallengeScore: persisted?.bestChallengeScore ?? 0,
   setScreen: (s) => set({ screen: s }),
