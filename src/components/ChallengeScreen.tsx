@@ -3,7 +3,9 @@ import { useStore } from '../state/store';
 import { uniformWeightsAll } from '../scheduler/weights';
 import { pickTask } from '../scheduler/pickTask';
 import { useAutoInput } from '../input/useAutoInput';
+import { useIsTouch } from '../input/useIsTouch';
 import { TaskView } from './TaskView';
+import { Numpad } from './Numpad';
 import { Task } from '../generators/types';
 import { t } from '../i18n/ru';
 
@@ -60,11 +62,12 @@ export function ChallengeScreen() {
     [recordAnswer, score],
   );
 
-  const { buffer, wrongFlash } = useAutoInput({
+  const { buffer, wrongFlash, pushDigit, popDigit } = useAutoInput({
     task,
     enabled: !finished,
     onComplete: handleComplete,
   });
+  const isTouch = useIsTouch();
 
   const restart = () => {
     weightsRef.current = uniformWeightsAll();
@@ -106,7 +109,10 @@ export function ChallengeScreen() {
             onExit={() => setScreen('home')}
           />
         ) : (
-          <TaskView task={task} buffer={buffer} wrongFlash={wrongFlash} />
+          <>
+            <TaskView task={task} buffer={buffer} wrongFlash={wrongFlash} />
+            {isTouch && <Numpad onDigit={pushDigit} onBackspace={popDigit} />}
+          </>
         )}
       </main>
     </div>

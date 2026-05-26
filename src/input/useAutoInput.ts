@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Task } from '../generators/types';
 
 interface Options {
@@ -20,44 +20,58 @@ export function useAutoInput({ task, enabled, onComplete }: Options) {
     hadWrongRef.current = false;
   }, [task]);
 
+  const pushDigit = useCallback(
+    (digit: string) => {
+      if (!enabled || !task) return;
+      if (!/^[0-9]$/.test(digit)) return;
+      const answerStr = String(task.answer);
+      setBuffer((b) => {
+        const next = b + digit;
+        if (next === answerStr) {
+          const elapsed = Date.now() - startTimeRef.current;
+          const isCorrect = !hadWrongRef.current;
+          queueMicrotask(() => onComplete(task, elapsed, isCorrect));
+          return '';
+        }
+        if (next.length >= answerStr.length) {
+          setWrongFlash(true);
+          hadWrongRef.current = true;
+        } else {
+          setWrongFlash(false);
+        }
+        return next;
+      });
+    },
+    [task, enabled, onComplete],
+  );
+
+  const popDigit = useCallback(() => {
+    if (!enabled || !task) return;
+    setWrongFlash(false);
+    setBuffer((b) => b.slice(0, -1));
+  }, [task, enabled]);
+
   useEffect(() => {
     if (!enabled || !task) return;
-    const answerStr = String(task.answer);
 
     const handler = (e: KeyboardEvent) => {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
 
       if (e.key === 'Backspace') {
         e.preventDefault();
-        setWrongFlash(false);
-        setBuffer((b) => b.slice(0, -1));
+        popDigit();
         return;
       }
 
       if (/^[0-9]$/.test(e.key)) {
         e.preventDefault();
-        setBuffer((b) => {
-          const next = b + e.key;
-          if (next === answerStr) {
-            const elapsed = Date.now() - startTimeRef.current;
-            const isCorrect = !hadWrongRef.current;
-            queueMicrotask(() => onComplete(task, elapsed, isCorrect));
-            return '';
-          }
-          if (next.length >= answerStr.length) {
-            setWrongFlash(true);
-            hadWrongRef.current = true;
-          } else {
-            setWrongFlash(false);
-          }
-          return next;
-        });
+        pushDigit(e.key);
       }
     };
 
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
-  }, [task, enabled, onComplete]);
+  }, [task, enabled, pushDigit, popDigit]);
 
-  return { buffer, wrongFlash };
+  return { buffer, wrongFlash, pushDigit, popDigit };
 }

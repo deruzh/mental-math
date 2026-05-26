@@ -4,7 +4,9 @@ import { flatLessons } from '../lessons';
 import { initialWeights, decayWeights } from '../scheduler/weights';
 import { pickTask } from '../scheduler/pickTask';
 import { useAutoInput } from '../input/useAutoInput';
+import { useIsTouch } from '../input/useIsTouch';
 import { TaskView } from './TaskView';
+import { Numpad } from './Numpad';
 import { StatsBar } from './StatsBar';
 import { Task } from '../generators/types';
 import { t } from '../i18n/ru';
@@ -50,11 +52,12 @@ export function LessonScreen() {
     [recordAnswer, focusId, sessionCorrect],
   );
 
-  const { buffer, wrongFlash } = useAutoInput({
+  const { buffer, wrongFlash, pushDigit, popDigit } = useAutoInput({
     task,
     enabled: true,
     onComplete: handleComplete,
   });
+  const isTouch = useIsTouch();
 
   const handleBack = () => {
     if (sessionAnswered > 0 && !window.confirm(t.confirmExit)) return;
@@ -80,6 +83,7 @@ export function LessonScreen() {
 
       <main className="flex flex-col items-center gap-10 py-10">
         <TaskView task={task} buffer={buffer} wrongFlash={wrongFlash} />
+        {isTouch && <Numpad onDigit={pushDigit} onBackspace={popDigit} />}
       </main>
 
       <footer className="flex justify-center">
