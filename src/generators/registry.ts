@@ -13,6 +13,8 @@ import { makeMultiplication } from './multiplication';
 import { makeMultiplicationRound } from './multiplicationRound';
 import { makeMultiplicationAddition } from './multiplicationAddition';
 import { makeMultiplicationSubtraction } from './multiplicationSubtraction';
+import { makeMultiplicationEleven } from './multiplicationEleven';
+import { makeMultiplicationFactor } from './multiplicationFactor';
 import { makeDivision } from './division';
 
 export const generators: Generator[] = [
@@ -31,6 +33,8 @@ export const generators: Generator[] = [
   makeMultiplicationRound(),
   makeMultiplicationAddition(),
   makeMultiplicationSubtraction(),
+  makeMultiplicationEleven(),
+  makeMultiplicationFactor(),
   makeDivision(1),
   makeDivision(2),
 ];

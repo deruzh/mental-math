@@ -45,5 +45,7 @@ export const t = {
   multiplicationRound: 'Метод округления',
   multiplicationAddition: 'Метод сложения',
   multiplicationSubtraction: 'Метод вычитания',
+  multiplicationEleven: 'Умножение на 11',
+  multiplicationFactor: 'Метод разложения',
   lifetimeStats: 'Общая статистика',
 };

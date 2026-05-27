@@ -44,6 +44,8 @@ export const modules: Module[] = [
       { id: 'multiplication-round', titleRu: t.multiplicationRound, generatorId: 'multiplication-round' },
       { id: 'multiplication-addition', titleRu: t.multiplicationAddition, generatorId: 'multiplication-addition' },
       { id: 'multiplication-subtraction', titleRu: t.multiplicationSubtraction, generatorId: 'multiplication-subtraction' },
+      { id: 'multiplication-eleven', titleRu: t.multiplicationEleven, generatorId: 'multiplication-eleven' },
+      { id: 'multiplication-factor', titleRu: t.multiplicationFactor, generatorId: 'multiplication-factor' },
     ],
   },
   {
