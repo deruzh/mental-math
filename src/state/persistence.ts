@@ -10,6 +10,7 @@ export interface PersistedState {
   selectedLessonIdx: number;
   stats: Stats;
   bestChallengeScore: number;
+  focusOnly?: boolean;
 }
 
 export function loadPersisted(): PersistedState | null {

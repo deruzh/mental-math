@@ -9,6 +9,8 @@ export function HomeScreen() {
   const setSelectedLessonIdx = useStore((s) => s.setSelectedLessonIdx);
   const stats = useStore((s) => s.stats);
   const bestScore = useStore((s) => s.bestChallengeScore);
+  const focusOnly = useStore((s) => s.focusOnly);
+  const setFocusOnly = useStore((s) => s.setFocusOnly);
 
   return (
     <div className="mx-auto flex max-w-3xl flex-col gap-8 px-4 py-10">
@@ -35,7 +37,18 @@ export function HomeScreen() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-semibold text-slate-700">{t.lessons}</h2>
+        <div className="mb-3 flex items-center justify-between">
+          <h2 className="text-xl font-semibold text-slate-700">{t.lessons}</h2>
+          <label className="flex cursor-pointer items-center gap-2 text-sm text-slate-600">
+            <input
+              type="checkbox"
+              checked={focusOnly}
+              onChange={(e) => setFocusOnly(e.target.checked)}
+              className="h-4 w-4 cursor-pointer accent-blue-600"
+            />
+            <span title={t.focusOnlyHint}>{t.focusOnlyLabel}</span>
+          </label>
+        </div>
         <LessonPicker
           selectedIdx={selectedLessonIdx}
           onPick={(idx) => {

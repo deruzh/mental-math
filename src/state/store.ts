@@ -9,8 +9,10 @@ interface AppState {
   selectedLessonIdx: number;
   stats: Stats;
   bestChallengeScore: number;
+  focusOnly: boolean;
   setScreen: (s: Screen) => void;
   setSelectedLessonIdx: (i: number) => void;
+  setFocusOnly: (v: boolean) => void;
   recordAnswer: (correct: boolean, elapsedMs: number) => void;
   recordChallengeScore: (score: number) => void;
 }
@@ -24,9 +26,14 @@ export const useStore = create<AppState>((set, get) => ({
   selectedLessonIdx: initialRoute.lessonIdx ?? persisted?.selectedLessonIdx ?? 0,
   stats: persisted?.stats ?? { totalCorrect: 0, totalAnswered: 0, avgTimeMs: 0 },
   bestChallengeScore: persisted?.bestChallengeScore ?? 0,
+  focusOnly: persisted?.focusOnly ?? false,
   setScreen: (s) => set({ screen: s }),
   setSelectedLessonIdx: (i) => {
     set({ selectedLessonIdx: i });
+    persist(get());
+  },
+  setFocusOnly: (v) => {
+    set({ focusOnly: v });
     persist(get());
   },
   recordAnswer: (correct, elapsedMs) => {
@@ -52,6 +59,7 @@ function persist(state: AppState) {
     selectedLessonIdx: state.selectedLessonIdx,
     stats: state.stats,
     bestChallengeScore: state.bestChallengeScore,
+    focusOnly: state.focusOnly,
   };
   savePersisted(snapshot);
 }

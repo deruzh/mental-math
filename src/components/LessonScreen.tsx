@@ -15,6 +15,7 @@ export function LessonScreen() {
   const selectedIdx = useStore((s) => s.selectedLessonIdx);
   const setScreen = useStore((s) => s.setScreen);
   const recordAnswer = useStore((s) => s.recordAnswer);
+  const focusOnly = useStore((s) => s.focusOnly);
 
   const focusId = useMemo(() => flatLessons[selectedIdx].generatorId, [selectedIdx]);
   const [weights, setWeights] = useState<Record<string, number>>(() =>
@@ -43,13 +44,13 @@ export function LessonScreen() {
         setSessionAvgMs((prev) => (prev * sessionCorrect + elapsedMs) / (sessionCorrect + 1));
       }
       setWeights((prev) => {
-        const next = decayWeights(prev, focusId);
+        const next = focusOnly ? prev : decayWeights(prev, focusId);
         setTask(pickTask(next));
         return next;
       });
       void finishedTask;
     },
-    [recordAnswer, focusId, sessionCorrect],
+    [recordAnswer, focusId, sessionCorrect, focusOnly],
   );
 
   const { buffer, wrongFlash, pushDigit, popDigit } = useAutoInput({

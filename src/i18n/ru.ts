@@ -32,7 +32,7 @@ export const t = {
   oneDigitSubtract: 'Таблица Вычитания',
   oneDigitMultiply: `Таблица Умножения`,
   oneDigitDivide: `Таблица Деления`,
-  twoDigit: 'Сложение справа налево',
+  divisionOneDigit: 'Деление на однозначные числа',
   additionRound: 'Сложение справа налево',
   subtractionRound: 'Вычитание справа налево',
   subtractionLeftRight: 'Вычитание слева направо',
@@ -48,4 +48,6 @@ export const t = {
   multiplicationEleven: 'Умножение на 11',
   multiplicationFactor: 'Метод разложения',
   lifetimeStats: 'Общая статистика',
+  focusOnlyLabel: 'Только текущий урок',
+  focusOnlyHint: 'Без подмешивания пройденных уроков',
 };
