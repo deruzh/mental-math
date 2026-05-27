@@ -41,5 +41,7 @@ export const t = {
   additionLeftRight: 'Сложение слева направо',
   additionTwoStep: 'Сложение в два шага',
   additionBlocks: 'Разделение на двойки и тройки',
+  multiplicationTwoByOne: 'Умножение двузначного числа на однозначное',
+  multiplicationRound: 'Метод округления',
   lifetimeStats: 'Общая статистика',
 };

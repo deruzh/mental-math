@@ -40,7 +40,8 @@ export const modules: Module[] = [
     titleRu: t.modMultiplication,
     lessons: [
       { id: 'multiplication-1', titleRu: t.oneDigitMultiply, generatorId: 'multiplication-1' },
-      { id: 'multiplication-2', titleRu: t.twoDigit, generatorId: 'multiplication-2' },
+      { id: 'multiplication-2', titleRu: t.multiplicationTwoByOne, generatorId: 'multiplication-2' },
+      { id: 'multiplication-round', titleRu: t.multiplicationRound, generatorId: 'multiplication-round' },
     ],
   },
   {
