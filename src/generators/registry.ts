@@ -5,6 +5,10 @@ import { makeAdditionLeftRight } from './additionLeftRight';
 import { makeAdditionTwoStep } from './additionTwoStep';
 import { makeAdditionBlocks } from './additionBlocks';
 import { makeSubtraction } from './subtraction';
+import { makeSubtractionRound } from './subtractionRound';
+import { makeSubtractionLeftRight } from './subtractionLeftRight';
+import { makeSubtractionTwoStep } from './subtractionTwoStep';
+import { makeSubtractionBlocks } from './subtractionBlocks';
 import { makeMultiplication } from './multiplication';
 import { makeDivision } from './division';
 
@@ -15,7 +19,10 @@ export const generators: Generator[] = [
   makeAdditionTwoStep(),
   makeAdditionBlocks(),
   makeSubtraction(1),
-  makeSubtraction(2),
+  makeSubtractionRound(),
+  makeSubtractionLeftRight(),
+  makeSubtractionTwoStep(),
+  makeSubtractionBlocks(),
   makeMultiplication(1),
   makeMultiplication(2),
   makeDivision(1),
