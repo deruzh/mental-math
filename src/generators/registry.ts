@@ -12,6 +12,7 @@ import { makeSubtractionBlocks } from './subtractionBlocks';
 import { makeMultiplication } from './multiplication';
 import { makeMultiplicationRound } from './multiplicationRound';
 import { makeMultiplicationAddition } from './multiplicationAddition';
+import { makeMultiplicationSubtraction } from './multiplicationSubtraction';
 import { makeDivision } from './division';
 
 export const generators: Generator[] = [
@@ -29,6 +30,7 @@ export const generators: Generator[] = [
   makeMultiplication(2),
   makeMultiplicationRound(),
   makeMultiplicationAddition(),
+  makeMultiplicationSubtraction(),
   makeDivision(1),
   makeDivision(2),
 ];

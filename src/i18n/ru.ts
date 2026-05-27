@@ -44,5 +44,6 @@ export const t = {
   multiplicationTwoByOne: 'Умножение двузначного числа на однозначное',
   multiplicationRound: 'Метод округления',
   multiplicationAddition: 'Метод сложения',
+  multiplicationSubtraction: 'Метод вычитания',
   lifetimeStats: 'Общая статистика',
 };
