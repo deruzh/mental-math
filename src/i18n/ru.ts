@@ -43,5 +43,6 @@ export const t = {
   additionBlocks: 'Разделение на двойки и тройки',
   multiplicationTwoByOne: 'Умножение двузначного числа на однозначное',
   multiplicationRound: 'Метод округления',
+  multiplicationAddition: 'Метод сложения',
   lifetimeStats: 'Общая статистика',
 };
