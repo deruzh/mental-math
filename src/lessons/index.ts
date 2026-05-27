@@ -54,6 +54,7 @@ export const modules: Module[] = [
     lessons: [
       { id: 'division-1', titleRu: t.oneDigitDivide, generatorId: 'division-1' },
       { id: 'division-2', titleRu: t.divisionOneDigit, generatorId: 'division-2' },
+      { id: 'division-twodigit', titleRu: t.divisionTwoDigit, generatorId: 'division-twodigit' },
     ],
   },
 ];

@@ -33,6 +33,7 @@ export const t = {
   oneDigitMultiply: `Таблица Умножения`,
   oneDigitDivide: `Таблица Деления`,
   divisionOneDigit: 'Деление на однозначные числа',
+  divisionTwoDigit: 'Деление на двузначные числа',
   additionRound: 'Сложение справа налево',
   subtractionRound: 'Вычитание справа налево',
   subtractionLeftRight: 'Вычитание слева направо',
@@ -50,4 +51,6 @@ export const t = {
   lifetimeStats: 'Общая статистика',
   focusOnlyLabel: 'Только текущий урок',
   focusOnlyHint: 'Без подмешивания пройденных уроков',
+  streak: 'Серия',
+  maxStreak: 'Макс. серия',
 };

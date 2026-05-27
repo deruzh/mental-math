@@ -16,6 +16,7 @@ import { makeMultiplicationSubtraction } from './multiplicationSubtraction';
 import { makeMultiplicationEleven } from './multiplicationEleven';
 import { makeMultiplicationFactor } from './multiplicationFactor';
 import { makeDivision } from './division';
+import { makeDivisionTwoDigit } from './divisionTwoDigit';
 
 export const generators: Generator[] = [
   makeAddition(1),
@@ -37,6 +38,7 @@ export const generators: Generator[] = [
   makeMultiplicationFactor(),
   makeDivision(1),
   makeDivision(2),
+  makeDivisionTwoDigit(),
 ];
 
 export const generatorById: Record<string, Generator> = Object.fromEntries(
